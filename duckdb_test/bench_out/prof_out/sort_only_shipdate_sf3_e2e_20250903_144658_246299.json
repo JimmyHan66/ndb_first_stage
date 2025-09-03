@@ -1,0 +1,49 @@
+{
+    "rows_returned": 17996609,
+    "latency": 3.485439168,
+    "result_set_size": 71986436,
+    "query_name": "SELECT l_shipdate\n        FROM lineitem\n        ORDER BY l_shipdate;",
+    "blocked_thread_time": 0.0,
+    "system_peak_buffer_memory": 3627618304,
+    "system_peak_temp_dir_size": 0,
+    "cpu_time": 0.24666066399999995,
+    "extra_info": {},
+    "cumulative_cardinality": 35993218,
+    "cumulative_rows_scanned": 17996609,
+    "children": [
+        {
+            "result_set_size": 71986436,
+            "operator_name": "ORDER_BY",
+            "cpu_time": 0.24666066399999995,
+            "extra_info": {
+                "Order By": "\"temp\".main.lineitem.l_shipdate ASC"
+            },
+            "cumulative_cardinality": 35993218,
+            "operator_type": "ORDER_BY",
+            "operator_cardinality": 17996609,
+            "cumulative_rows_scanned": 17996609,
+            "operator_rows_scanned": 0,
+            "operator_timing": 0.24162602699999994,
+            "children": [
+                {
+                    "result_set_size": 71986436,
+                    "operator_name": "SEQ_SCAN ",
+                    "cpu_time": 0.00503463700000001,
+                    "extra_info": {
+                        "Table": "lineitem",
+                        "Type": "Sequential Scan",
+                        "Projections": "l_shipdate",
+                        "Estimated Cardinality": "17996609"
+                    },
+                    "cumulative_cardinality": 17996609,
+                    "operator_type": "TABLE_SCAN",
+                    "operator_cardinality": 17996609,
+                    "cumulative_rows_scanned": 17996609,
+                    "operator_rows_scanned": 17996609,
+                    "operator_timing": 0.00503463700000001,
+                    "children": []
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,63 @@
+{
+    "rows_returned": 0,
+    "latency": 1.296415666,
+    "result_set_size": 0,
+    "query_name": "EXECUTE q;",
+    "blocked_thread_time": 0.0,
+    "system_peak_buffer_memory": 6047096832,
+    "system_peak_temp_dir_size": 0,
+    "cpu_time": 0.26286965899999964,
+    "extra_info": {},
+    "cumulative_cardinality": 29999795,
+    "cumulative_rows_scanned": 29999795,
+    "children": [
+        {
+            "result_set_size": 0,
+            "operator_name": "EXECUTE",
+            "cpu_time": 0.26286965899999964,
+            "extra_info": {},
+            "cumulative_cardinality": 29999795,
+            "operator_type": "EXECUTE",
+            "operator_cardinality": 0,
+            "cumulative_rows_scanned": 29999795,
+            "operator_rows_scanned": 0,
+            "operator_timing": 0.0,
+            "children": [
+                {
+                    "result_set_size": 0,
+                    "operator_name": "ORDER_BY",
+                    "cpu_time": 0.26286965899999964,
+                    "extra_info": {
+                        "Order By": "\"temp\".main.lineitem.l_shipdate ASC"
+                    },
+                    "cumulative_cardinality": 29999795,
+                    "operator_type": "ORDER_BY",
+                    "operator_cardinality": 0,
+                    "cumulative_rows_scanned": 29999795,
+                    "operator_rows_scanned": 0,
+                    "operator_timing": 0.25357146299999966,
+                    "children": [
+                        {
+                            "result_set_size": 119999180,
+                            "operator_name": "SEQ_SCAN ",
+                            "cpu_time": 0.009298195999999993,
+                            "extra_info": {
+                                "Table": "lineitem",
+                                "Type": "Sequential Scan",
+                                "Projections": "l_shipdate",
+                                "Estimated Cardinality": "29999795"
+                            },
+                            "cumulative_cardinality": 29999795,
+                            "operator_type": "TABLE_SCAN",
+                            "operator_cardinality": 29999795,
+                            "cumulative_rows_scanned": 29999795,
+                            "operator_rows_scanned": 29999795,
+                            "operator_timing": 0.009298195999999993,
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

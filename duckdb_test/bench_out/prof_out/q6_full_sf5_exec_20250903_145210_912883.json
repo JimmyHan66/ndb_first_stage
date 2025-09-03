@@ -1,0 +1,88 @@
+{
+    "rows_returned": 0,
+    "latency": 0.136260731,
+    "result_set_size": 0,
+    "query_name": "EXECUTE q;",
+    "blocked_thread_time": 0.0,
+    "system_peak_buffer_memory": 5570293984,
+    "system_peak_temp_dir_size": 0,
+    "cpu_time": 0.12822987300000036,
+    "extra_info": {},
+    "cumulative_cardinality": 1139999,
+    "cumulative_rows_scanned": 29999795,
+    "children": [
+        {
+            "result_set_size": 0,
+            "operator_name": "EXECUTE",
+            "cpu_time": 0.12822987300000036,
+            "extra_info": {},
+            "cumulative_cardinality": 1139999,
+            "operator_type": "EXECUTE",
+            "operator_cardinality": 0,
+            "cumulative_rows_scanned": 29999795,
+            "operator_rows_scanned": 0,
+            "operator_timing": 0.0,
+            "children": [
+                {
+                    "result_set_size": 16,
+                    "operator_name": "UNGROUPED_AGGREGATE",
+                    "cpu_time": 0.12822987300000036,
+                    "extra_info": {
+                        "Aggregates": "sum_no_overflow(#0)"
+                    },
+                    "cumulative_cardinality": 1139999,
+                    "operator_type": "UNGROUPED_AGGREGATE",
+                    "operator_cardinality": 1,
+                    "cumulative_rows_scanned": 29999795,
+                    "operator_rows_scanned": 0,
+                    "operator_timing": 0.0033974060000000663,
+                    "children": [
+                        {
+                            "result_set_size": 4559992,
+                            "operator_name": "PROJECTION",
+                            "cpu_time": 0.12483246700000028,
+                            "extra_info": {
+                                "Projections": "(l_extendedprice * l_discount)",
+                                "Estimated Cardinality": "5999959"
+                            },
+                            "cumulative_cardinality": 1139998,
+                            "operator_type": "PROJECTION",
+                            "operator_cardinality": 569999,
+                            "cumulative_rows_scanned": 29999795,
+                            "operator_rows_scanned": 0,
+                            "operator_timing": 0.013670707999999948,
+                            "children": [
+                                {
+                                    "result_set_size": 9119984,
+                                    "operator_name": "SEQ_SCAN ",
+                                    "cpu_time": 0.11116175900000033,
+                                    "extra_info": {
+                                        "Table": "lineitem",
+                                        "Type": "Sequential Scan",
+                                        "Projections": [
+                                            "l_discount",
+                                            "l_extendedprice"
+                                        ],
+                                        "Filters": [
+                                            "l_shipdate>='1994-01-01'::DATE AND l_shipdate<'1995-01-01'::DATE",
+                                            "l_discount>=0.05 AND l_discount<=0.07",
+                                            "l_quantity<24.00"
+                                        ],
+                                        "Estimated Cardinality": "5999959"
+                                    },
+                                    "cumulative_cardinality": 569999,
+                                    "operator_type": "TABLE_SCAN",
+                                    "operator_cardinality": 569999,
+                                    "cumulative_rows_scanned": 29999795,
+                                    "operator_rows_scanned": 29999795,
+                                    "operator_timing": 0.11116175900000033,
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

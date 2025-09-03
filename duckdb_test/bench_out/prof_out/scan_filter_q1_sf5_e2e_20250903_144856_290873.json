@@ -1,0 +1,50 @@
+{
+    "rows_returned": 1,
+    "latency": 0.045439281,
+    "result_set_size": 8,
+    "query_name": "SELECT count(*) FROM lineitem WHERE l_shipdate <= DATE '1998-12-01' - INTERVAL 90 DAY;",
+    "blocked_thread_time": 0.0,
+    "system_peak_buffer_memory": 5570293984,
+    "system_peak_temp_dir_size": 0,
+    "cpu_time": 0.039376704000000005,
+    "extra_info": {},
+    "cumulative_cardinality": 29577565,
+    "cumulative_rows_scanned": 29999795,
+    "children": [
+        {
+            "result_set_size": 8,
+            "operator_name": "UNGROUPED_AGGREGATE",
+            "cpu_time": 0.039376704000000005,
+            "extra_info": {
+                "Aggregates": "count_star()"
+            },
+            "cumulative_cardinality": 29577565,
+            "operator_type": "UNGROUPED_AGGREGATE",
+            "operator_cardinality": 1,
+            "cumulative_rows_scanned": 29999795,
+            "operator_rows_scanned": 0,
+            "operator_timing": 0.0018771330000000384,
+            "children": [
+                {
+                    "result_set_size": 118310256,
+                    "operator_name": "SEQ_SCAN ",
+                    "cpu_time": 0.03749957099999997,
+                    "extra_info": {
+                        "Table": "lineitem",
+                        "Type": "Sequential Scan",
+                        "Projections": "",
+                        "Filters": "l_shipdate<='1998-09-02'::DATE",
+                        "Estimated Cardinality": "5999959"
+                    },
+                    "cumulative_cardinality": 29577564,
+                    "operator_type": "TABLE_SCAN",
+                    "operator_cardinality": 29577564,
+                    "cumulative_rows_scanned": 29999795,
+                    "operator_rows_scanned": 29999795,
+                    "operator_timing": 0.03749957099999997,
+                    "children": []
+                }
+            ]
+        }
+    ]
+}

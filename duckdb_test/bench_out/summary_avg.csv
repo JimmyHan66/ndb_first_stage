@@ -1,0 +1,37 @@
+scale,case,case_desc,mode,mode_desc,warmups,repeats,avg_ms
+1,agg_only_q1,算子：Group By + Aggregations（Q1 聚合，去排序）,e2e,端到端：解析 + 优化 + 编译 + 执行 的总时间（预热不计入，只统计 REPEATS 次）。,3,7,243.763
+1,agg_only_q1,算子：Group By + Aggregations（Q1 聚合，去排序）,exec,仅执行：先 PREPARE，然后 EXECUTE 复用执行计划，仅统计执行阶段（预热不计入，只统计 REPEATS 次）。,3,7,236.322
+1,q1_full,整条查询：TPC-H Q1（含 ORDER BY）,e2e,端到端：解析 + 优化 + 编译 + 执行 的总时间（预热不计入，只统计 REPEATS 次）。,3,7,237.340
+1,q1_full,整条查询：TPC-H Q1（含 ORDER BY）,exec,仅执行：先 PREPARE，然后 EXECUTE 复用执行计划，仅统计执行阶段（预热不计入，只统计 REPEATS 次）。,3,7,241.494
+1,q6_full,整条查询：TPC-H Q6,e2e,端到端：解析 + 优化 + 编译 + 执行 的总时间（预热不计入，只统计 REPEATS 次）。,3,7,29.353
+1,q6_full,整条查询：TPC-H Q6,exec,仅执行：先 PREPARE，然后 EXECUTE 复用执行计划，仅统计执行阶段（预热不计入，只统计 REPEATS 次）。,3,7,33.837
+1,scan_filter_q1,算子：Scan + Filter（Q1 时间条件）,e2e,端到端：解析 + 优化 + 编译 + 执行 的总时间（预热不计入，只统计 REPEATS 次）。,3,7,8.806
+1,scan_filter_q1,算子：Scan + Filter（Q1 时间条件）,exec,仅执行：先 PREPARE，然后 EXECUTE 复用执行计划，仅统计执行阶段（预热不计入，只统计 REPEATS 次）。,3,7,8.595
+1,scan_filter_q6,算子：Scan + Filter（Q6 条件）,e2e,端到端：解析 + 优化 + 编译 + 执行 的总时间（预热不计入，只统计 REPEATS 次）。,3,7,22.121
+1,scan_filter_q6,算子：Scan + Filter（Q6 条件）,exec,仅执行：先 PREPARE，然后 EXECUTE 复用执行计划，仅统计执行阶段（预热不计入，只统计 REPEATS 次）。,3,7,21.800
+1,sort_only_shipdate,算子：全局排序（ORDER BY l_shipdate，无 LIMIT）,e2e,端到端：解析 + 优化 + 编译 + 执行 的总时间（预热不计入，只统计 REPEATS 次）。,3,7,1253.146
+1,sort_only_shipdate,算子：全局排序（ORDER BY l_shipdate，无 LIMIT）,exec,仅执行：先 PREPARE，然后 EXECUTE 复用执行计划，仅统计执行阶段（预热不计入，只统计 REPEATS 次）。,3,7,222.012
+3,agg_only_q1,算子：Group By + Aggregations（Q1 聚合，去排序）,e2e,端到端：解析 + 优化 + 编译 + 执行 的总时间（预热不计入，只统计 REPEATS 次）。,3,7,710.223
+3,agg_only_q1,算子：Group By + Aggregations（Q1 聚合，去排序）,exec,仅执行：先 PREPARE，然后 EXECUTE 复用执行计划，仅统计执行阶段（预热不计入，只统计 REPEATS 次）。,3,7,702.188
+3,q1_full,整条查询：TPC-H Q1（含 ORDER BY）,e2e,端到端：解析 + 优化 + 编译 + 执行 的总时间（预热不计入，只统计 REPEATS 次）。,3,7,703.260
+3,q1_full,整条查询：TPC-H Q1（含 ORDER BY）,exec,仅执行：先 PREPARE，然后 EXECUTE 复用执行计划，仅统计执行阶段（预热不计入，只统计 REPEATS 次）。,3,7,708.221
+3,q6_full,整条查询：TPC-H Q6,e2e,端到端：解析 + 优化 + 编译 + 执行 的总时间（预热不计入，只统计 REPEATS 次）。,3,7,83.342
+3,q6_full,整条查询：TPC-H Q6,exec,仅执行：先 PREPARE，然后 EXECUTE 复用执行计划，仅统计执行阶段（预热不计入，只统计 REPEATS 次）。,3,7,82.217
+3,scan_filter_q1,算子：Scan + Filter（Q1 时间条件）,e2e,端到端：解析 + 优化 + 编译 + 执行 的总时间（预热不计入，只统计 REPEATS 次）。,3,7,27.028
+3,scan_filter_q1,算子：Scan + Filter（Q1 时间条件）,exec,仅执行：先 PREPARE，然后 EXECUTE 复用执行计划，仅统计执行阶段（预热不计入，只统计 REPEATS 次）。,3,7,26.201
+3,scan_filter_q6,算子：Scan + Filter（Q6 条件）,e2e,端到端：解析 + 优化 + 编译 + 执行 的总时间（预热不计入，只统计 REPEATS 次）。,3,7,65.336
+3,scan_filter_q6,算子：Scan + Filter（Q6 条件）,exec,仅执行：先 PREPARE，然后 EXECUTE 复用执行计划，仅统计执行阶段（预热不计入，只统计 REPEATS 次）。,3,7,64.948
+3,sort_only_shipdate,算子：全局排序（ORDER BY l_shipdate，无 LIMIT）,e2e,端到端：解析 + 优化 + 编译 + 执行 的总时间（预热不计入，只统计 REPEATS 次）。,3,7,3895.647
+3,sort_only_shipdate,算子：全局排序（ORDER BY l_shipdate，无 LIMIT）,exec,仅执行：先 PREPARE，然后 EXECUTE 复用执行计划，仅统计执行阶段（预热不计入，只统计 REPEATS 次）。,3,7,739.843
+5,agg_only_q1,算子：Group By + Aggregations（Q1 聚合，去排序）,e2e,端到端：解析 + 优化 + 编译 + 执行 的总时间（预热不计入，只统计 REPEATS 次）。,3,7,1172.588
+5,agg_only_q1,算子：Group By + Aggregations（Q1 聚合，去排序）,exec,仅执行：先 PREPARE，然后 EXECUTE 复用执行计划，仅统计执行阶段（预热不计入，只统计 REPEATS 次）。,3,7,1170.797
+5,q1_full,整条查询：TPC-H Q1（含 ORDER BY）,e2e,端到端：解析 + 优化 + 编译 + 执行 的总时间（预热不计入，只统计 REPEATS 次）。,3,7,1181.414
+5,q1_full,整条查询：TPC-H Q1（含 ORDER BY）,exec,仅执行：先 PREPARE，然后 EXECUTE 复用执行计划，仅统计执行阶段（预热不计入，只统计 REPEATS 次）。,3,7,1292.543
+5,q6_full,整条查询：TPC-H Q6,e2e,端到端：解析 + 优化 + 编译 + 执行 的总时间（预热不计入，只统计 REPEATS 次）。,3,7,147.571
+5,q6_full,整条查询：TPC-H Q6,exec,仅执行：先 PREPARE，然后 EXECUTE 复用执行计划，仅统计执行阶段（预热不计入，只统计 REPEATS 次）。,3,7,138.132
+5,scan_filter_q1,算子：Scan + Filter（Q1 时间条件）,e2e,端到端：解析 + 优化 + 编译 + 执行 的总时间（预热不计入，只统计 REPEATS 次）。,3,7,44.893
+5,scan_filter_q1,算子：Scan + Filter（Q1 时间条件）,exec,仅执行：先 PREPARE，然后 EXECUTE 复用执行计划，仅统计执行阶段（预热不计入，只统计 REPEATS 次）。,3,7,43.496
+5,scan_filter_q6,算子：Scan + Filter（Q6 条件）,e2e,端到端：解析 + 优化 + 编译 + 执行 的总时间（预热不计入，只统计 REPEATS 次）。,3,7,110.241
+5,scan_filter_q6,算子：Scan + Filter（Q6 条件）,exec,仅执行：先 PREPARE，然后 EXECUTE 复用执行计划，仅统计执行阶段（预热不计入，只统计 REPEATS 次）。,3,7,108.521
+5,sort_only_shipdate,算子：全局排序（ORDER BY l_shipdate，无 LIMIT）,e2e,端到端：解析 + 优化 + 编译 + 执行 的总时间（预热不计入，只统计 REPEATS 次）。,3,7,6540.510
+5,sort_only_shipdate,算子：全局排序（ORDER BY l_shipdate，无 LIMIT）,exec,仅执行：先 PREPARE，然后 EXECUTE 复用执行计划，仅统计执行阶段（预热不计入，只统计 REPEATS 次）。,3,7,1357.775

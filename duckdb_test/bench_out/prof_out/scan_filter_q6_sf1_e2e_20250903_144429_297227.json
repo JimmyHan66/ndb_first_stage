@@ -1,0 +1,54 @@
+{
+    "rows_returned": 1,
+    "latency": 0.022079769,
+    "result_set_size": 8,
+    "query_name": "SELECT count(*) FROM lineitem WHERE \nl_shipdate >= DATE '1994-01-01'\nAND l_shipdate <  DATE '1995-01-01'\nAND l_discount BETWEEN 0.05 AND 0.07\nAND l_quantity < 24\n;",
+    "blocked_thread_time": 0.0,
+    "system_peak_buffer_memory": 1117940128,
+    "system_peak_temp_dir_size": 0,
+    "cpu_time": 0.020117371999999998,
+    "extra_info": {},
+    "cumulative_cardinality": 114161,
+    "cumulative_rows_scanned": 6001215,
+    "children": [
+        {
+            "result_set_size": 8,
+            "operator_name": "UNGROUPED_AGGREGATE",
+            "cpu_time": 0.020117371999999998,
+            "extra_info": {
+                "Aggregates": "count_star()"
+            },
+            "cumulative_cardinality": 114161,
+            "operator_type": "UNGROUPED_AGGREGATE",
+            "operator_cardinality": 1,
+            "cumulative_rows_scanned": 6001215,
+            "operator_rows_scanned": 0,
+            "operator_timing": 0.0004025499999999975,
+            "children": [
+                {
+                    "result_set_size": 2283200,
+                    "operator_name": "SEQ_SCAN ",
+                    "cpu_time": 0.019714822,
+                    "extra_info": {
+                        "Table": "lineitem",
+                        "Type": "Sequential Scan",
+                        "Projections": "",
+                        "Filters": [
+                            "l_shipdate>='1994-01-01'::DATE AND l_shipdate<'1995-01-01'::DATE",
+                            "l_discount>=0.05 AND l_discount<=0.07",
+                            "l_quantity<24.00"
+                        ],
+                        "Estimated Cardinality": "1200243"
+                    },
+                    "cumulative_cardinality": 114160,
+                    "operator_type": "TABLE_SCAN",
+                    "operator_cardinality": 114160,
+                    "cumulative_rows_scanned": 6001215,
+                    "operator_rows_scanned": 6001215,
+                    "operator_timing": 0.019714822,
+                    "children": []
+                }
+            ]
+        }
+    ]
+}

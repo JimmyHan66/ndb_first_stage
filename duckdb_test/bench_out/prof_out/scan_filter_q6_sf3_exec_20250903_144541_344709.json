@@ -1,0 +1,68 @@
+{
+    "rows_returned": 0,
+    "latency": 0.066701234,
+    "result_set_size": 0,
+    "query_name": "EXECUTE q;",
+    "blocked_thread_time": 0.0,
+    "system_peak_buffer_memory": 3342713056,
+    "system_peak_temp_dir_size": 0,
+    "cpu_time": 0.06189349599999991,
+    "extra_info": {},
+    "cumulative_cardinality": 342465,
+    "cumulative_rows_scanned": 17996609,
+    "children": [
+        {
+            "result_set_size": 0,
+            "operator_name": "EXECUTE",
+            "cpu_time": 0.06189349599999991,
+            "extra_info": {},
+            "cumulative_cardinality": 342465,
+            "operator_type": "EXECUTE",
+            "operator_cardinality": 0,
+            "cumulative_rows_scanned": 17996609,
+            "operator_rows_scanned": 0,
+            "operator_timing": 0.0,
+            "children": [
+                {
+                    "result_set_size": 8,
+                    "operator_name": "UNGROUPED_AGGREGATE",
+                    "cpu_time": 0.06189349599999991,
+                    "extra_info": {
+                        "Aggregates": "count_star()"
+                    },
+                    "cumulative_cardinality": 342465,
+                    "operator_type": "UNGROUPED_AGGREGATE",
+                    "operator_cardinality": 1,
+                    "cumulative_rows_scanned": 17996609,
+                    "operator_rows_scanned": 0,
+                    "operator_timing": 0.0011837740000000218,
+                    "children": [
+                        {
+                            "result_set_size": 6849280,
+                            "operator_name": "SEQ_SCAN ",
+                            "cpu_time": 0.06070972199999989,
+                            "extra_info": {
+                                "Table": "lineitem",
+                                "Type": "Sequential Scan",
+                                "Projections": "",
+                                "Filters": [
+                                    "l_shipdate>='1994-01-01'::DATE AND l_shipdate<'1995-01-01'::DATE",
+                                    "l_discount>=0.05 AND l_discount<=0.07",
+                                    "l_quantity<24.00"
+                                ],
+                                "Estimated Cardinality": "3599321"
+                            },
+                            "cumulative_cardinality": 342464,
+                            "operator_type": "TABLE_SCAN",
+                            "operator_cardinality": 342464,
+                            "cumulative_rows_scanned": 17996609,
+                            "operator_rows_scanned": 17996609,
+                            "operator_timing": 0.06070972199999989,
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

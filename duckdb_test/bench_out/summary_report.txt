@@ -1,0 +1,57 @@
+DuckDB 单线程 TPC-H Q1/Q6 基准：平均时间统计
+==================================================
+环境约束：threads=1, memory_limit='100GB', 内存表=read_parquet(...) -> TEMP table
+Warm-ups（预热次数） = 3
+Repeats（正式统计次数） = 7
+
+模式说明：
+- e2e  : 端到端：解析 + 优化 + 编译 + 执行 的总时间（预热不计入，只统计 REPEATS 次）。
+- exec : 仅执行：先 PREPARE，然后 EXECUTE 复用执行计划，仅统计执行阶段（预热不计入，只统计 REPEATS 次）。
+
+用例说明：
+- scan_filter_q6       : 算子：Scan + Filter（Q6 条件）
+- scan_filter_q1       : 算子：Scan + Filter（Q1 时间条件）
+- agg_only_q1          : 算子：Group By + Aggregations（Q1 聚合，去排序）
+- sort_only_shipdate   : 算子：全局排序（ORDER BY l_shipdate，无 LIMIT）
+- q6_full              : 整条查询：TPC-H Q6
+- q1_full              : 整条查询：TPC-H Q1（含 ORDER BY）
+
+平均时间（ms）：
+scale  case                    mode        avg_ms
+-------------------------------------------------
+    1  agg_only_q1             e2e        243.763
+    1  agg_only_q1             exec       236.322
+    1  q1_full                 e2e        237.340
+    1  q1_full                 exec       241.494
+    1  q6_full                 e2e         29.353
+    1  q6_full                 exec        33.837
+    1  scan_filter_q1          e2e          8.806
+    1  scan_filter_q1          exec         8.595
+    1  scan_filter_q6          e2e         22.121
+    1  scan_filter_q6          exec        21.800
+    1  sort_only_shipdate      e2e       1253.146
+    1  sort_only_shipdate      exec       222.012
+    3  agg_only_q1             e2e        710.223
+    3  agg_only_q1             exec       702.188
+    3  q1_full                 e2e        703.260
+    3  q1_full                 exec       708.221
+    3  q6_full                 e2e         83.342
+    3  q6_full                 exec        82.217
+    3  scan_filter_q1          e2e         27.028
+    3  scan_filter_q1          exec        26.201
+    3  scan_filter_q6          e2e         65.336
+    3  scan_filter_q6          exec        64.948
+    3  sort_only_shipdate      e2e       3895.647
+    3  sort_only_shipdate      exec       739.843
+    5  agg_only_q1             e2e       1172.588
+    5  agg_only_q1             exec      1170.797
+    5  q1_full                 e2e       1181.414
+    5  q1_full                 exec      1292.543
+    5  q6_full                 e2e        147.571
+    5  q6_full                 exec       138.132
+    5  scan_filter_q1          e2e         44.893
+    5  scan_filter_q1          exec        43.496
+    5  scan_filter_q6          e2e        110.241
+    5  scan_filter_q6          exec       108.521
+    5  sort_only_shipdate      e2e       6540.510
+    5  sort_only_shipdate      exec      1357.775
