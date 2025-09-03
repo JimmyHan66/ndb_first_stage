@@ -27,7 +27,7 @@ PIPELINES=("scan_filter_q1" "scan_filter_q6" "agg_only_q1" "sort_only_shipdate" 
 
 for pipeline in "${PIPELINES[@]}"; do
     echo "Compiling ${pipeline}_pipeline.c..."
-    /usr/bin/clang -S -emit-llvm -$OPT_LEVEL \
+    clang -S -emit-llvm -$OPT_LEVEL \
       -I../common \
       -I../../include \
       -I../../arrow-c \

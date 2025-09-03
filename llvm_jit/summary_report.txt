@@ -1,0 +1,68 @@
+NDB JIT Benchmark Summary Report
+==================================================
+
+Generated: 2025-09-03 22:00:45
+
+Environment Configuration:
+-------------------------
+• Single-threaded execution
+• Batch size: 2048 rows
+• JIT optimization: -O3 (exec), -O2 (e2e)
+• Hardware: Native CPU with AVX2 support
+
+Test Mode Definitions:
+----------------------
+• EXEC Mode:
+  - Only times JIT kernel execution
+  - Excludes: Parquet reading, Arrow conversion, JIT compilation
+  - Includes: 3 warmup runs + 2 measurement runs (min reported)
+
+• E2E Mode:
+  - Times complete end-to-end pipeline
+  - Includes: Parquet → Arrow → JIT compilation → execution
+  - No warmup, 2 rounds with fresh JIT compilation each time
+
+Performance Results - SF1:
+-------------------------
+Case                 Exec(ms)     E2E(ms)      Throughput(M rows/s) Selectivity 
+--------------------------------------------------------------------------------
+scan filter q1       30.3         1007.2       197.76               1.0000      
+scan filter q6       43.9         539.8        1.29                 0.0095      
+agg only q1          314.5        1585.4       19.08                1.0000      
+sort only shipdate   1668.2       2041.2       3.60                 1.0000      
+q6 full              44.6         690.7        1.28                 0.0095      
+q1 full              299.4        1662.4       20.04                1.0000      
+
+Performance Results - SF3:
+-------------------------
+Case                 Exec(ms)     E2E(ms)      Throughput(M rows/s) Selectivity 
+--------------------------------------------------------------------------------
+scan filter q1       91.8         2562.5       196.02               1.0000      
+scan filter q6       132.2        1249.4       1.29                 0.0095      
+agg only q1          936.5        3700.5       19.22                1.0000      
+sort only shipdate   5473.7       5892.1       3.29                 1.0000      
+q6 full              134.7        1392.8       1.27                 0.0095      
+q1 full              714.5        3826.7       25.19                1.0000      
+
+Performance Results - SF5:
+-------------------------
+Case                 Exec(ms)     E2E(ms)      Throughput(M rows/s) Selectivity 
+--------------------------------------------------------------------------------
+scan filter q1       123.3        4132.9       243.31               1.4648      
+scan filter q6       221.9        1899.7       1.29                 0.0139      
+agg only q1          1267.0       4900.5       23.68                1.4648      
+q6 full              224.6        2050.4       1.27                 0.0139      
+q1 full              1213.6       5970.6       24.72                1.4648      
+
+Summary Statistics:
+-------------------
+Total tests completed: 34
+• EXEC mode tests: 17
+• E2E mode tests: 17
+
+Performance Highlights:
+--------------------
+• Fastest EXEC: scan_filter_q1 (SF1) - 30.3ms
+• Slowest EXEC: sort_only_shipdate (SF3) - 5473.7ms
+
+Note: SF5 sort_only_shipdate tests were excluded due to excessive runtime.
