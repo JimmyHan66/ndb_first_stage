@@ -1,0 +1,26 @@
+DuckDB exec（仅执行）
+单线程 threads=1；PRAGMA memory_limit；TEMP 表仅7列；预热3，统计7
+
+内存上限：80GB
+
+平均时间（ms）：
+scale  case                          avg_ms
+--------------------------------------------
+    1  agg_only_q1                  244.830
+    1  q1_full                      235.792
+    1  q6_full                       26.865
+    1  scan_filter_q1                 9.833
+    1  scan_filter_q6                24.811
+    1  sort_only_shipdate          1285.385
+    3  agg_only_q1                  694.298
+    3  q1_full                      693.824
+    3  q6_full                       79.095
+    3  scan_filter_q1                23.394
+    3  scan_filter_q6                63.906
+    3  sort_only_shipdate          3846.793
+    5  agg_only_q1                 1153.700
+    5  q1_full                     1153.401
+    5  q6_full                      133.651
+    5  scan_filter_q1                39.453
+    5  scan_filter_q6               102.459
+    5  sort_only_shipdate          6572.672

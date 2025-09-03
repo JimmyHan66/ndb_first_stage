@@ -1,0 +1,26 @@
+DuckDB e2e（端到端墙钟；不预热）
+每轮：新连接→PRAGMA→read_parquet(7列)→执行1次→断开；重复7轮
+
+内存上限：80GB
+
+平均时间（ms）：
+scale  case                          avg_ms
+--------------------------------------------
+    1  agg_only_q1                 1218.062
+    1  q1_full                     1069.676
+    1  q6_full                      927.624
+    1  scan_filter_q1               985.302
+    1  scan_filter_q6              1004.542
+    1  sort_only_shipdate          2245.059
+    3  agg_only_q1                 3203.365
+    3  q1_full                     3094.435
+    3  q6_full                     2566.772
+    3  scan_filter_q1              2602.812
+    3  scan_filter_q6              2466.674
+    3  sort_only_shipdate          6423.228
+    5  agg_only_q1                 5167.591
+    5  q1_full                     5257.478
+    5  q6_full                     4147.810
+    5  scan_filter_q1              4039.850
+    5  scan_filter_q6              4075.897
+    5  sort_only_shipdate         10538.619
