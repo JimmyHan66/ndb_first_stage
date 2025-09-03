@@ -1,0 +1,17 @@
+NDB datatype:
+| Type name                             | Type ID     | C Native type | Type length (N bytes) | by value | type modifier support |
+| ------------------------------------- | ----------- | ------------- | --------------------- | -------- | --------------------- |
+| TINYINT (for backward compatibility)  | TINYINTID   | int8_t        | 1                     | true     | false                 |
+| SMALLINT (for backward compatibility) | SMALLINTID  | int16_t       | 2                     | true     | false                 |
+| INT                                   | INTID       | int32_t       | 4                     | true     | false                 |
+| BIGINT                                | BIGINTID    | int64_t       | 8                     | true     | false                 |
+| NUMERIC32(precision, scale)           | NUMERIC32ID | int32_t       | 4                     | true     | true                  |
+| NUMERIC64(precision, scale)           | NUMERIC64ID | int64_t       | 8                     | true     | true                  |
+| BOOLEAN                               | BOOLEANID   | int8_t        | 1                     | true     | false                 |
+| TIMESTAMP WITHOUT TIME ZONE           | TIMESTAMPID | int64_t       | 8                     | true     | false                 |
+| DATE WITHOUT TIME ZONE                | DATEID      | int32_t       | 4                     | true     | false                 |
+| FLOAT4 (for backward compatibility)   | FLOATID     | float         | 4                     | true     | false                 |
+| FLOAT8                                | DOUBLEID    | double        | 8                     | true     | false                 |
+| BPCHAR(N-bytes)                       | BPCHARID    | char[]        | -1 (variable length)  | false    | true                  |
+| VARCHAR(N-bytes)                      | VARCHARID   | char[]        | -1 (variable length)  | false    | true                  |
+| TEXT                                  | TEXTID      | char[]        | -1 (variable length)  | false    | false                 |

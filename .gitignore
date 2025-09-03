@@ -1,0 +1,6 @@
+arrow/
+sf1_parquet/
+sf3_parquet/
+sf5_parquet/
+build/
+.vscode/
