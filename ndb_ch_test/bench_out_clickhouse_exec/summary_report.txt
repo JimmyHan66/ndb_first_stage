@@ -1,0 +1,26 @@
+ClickHouse exec（仅执行；批量执行+事后解析）
+--max_threads=1; ENGINE=Memory; 预热3，统计7；只读7列；--time 强制输出耗时
+
+max_memory_usage ≈ 85899345920 bytes (~80GB)
+
+平均时间（ms）：
+scale  case                          avg_ms
+--------------------------------------------
+    1  agg_only_q1                  400.000
+    1  q1_full                      397.000
+    1  q6_full                       89.500
+    1  scan_filter_q1                12.000
+    1  scan_filter_q6                76.000
+    1  sort_only_shipdate           198.500
+    3  agg_only_q1                 1160.000
+    3  q1_full                     1146.000
+    3  q6_full                      224.000
+    3  scan_filter_q1                28.500
+    3  scan_filter_q6               185.000
+    3  sort_only_shipdate           605.500
+    5  agg_only_q1                 1851.500
+    5  q1_full                     1844.500
+    5  q6_full                      339.500
+    5  scan_filter_q1                39.000
+    5  scan_filter_q6               278.000
+    5  sort_only_shipdate           933.500
