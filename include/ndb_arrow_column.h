@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ndb_arrow_batch.h"
-#include <arrow/c/abi.h>
+#include "../arrow-c/abi.h"
 #include <stdint.h>
 
 #ifdef __cplusplus
@@ -32,7 +32,7 @@ enum ArrowTypeId {
   ARROW_TYPE_STRING = 6,
   ARROW_TYPE_DATE32 = 7,
   ARROW_TYPE_TIMESTAMP = 8,
-  ARROW_TYPE_DECIMAL128 = 9, 
+  ARROW_TYPE_DECIMAL128 = 9,
   ARROW_TYPE_UNKNOWN = -1
 };
 

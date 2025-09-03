@@ -1,6 +1,8 @@
 #pragma once
 
 #include <stdint.h>
+// Include Arrow column definitions for consistent type IDs
+#include "../../include/ndb_arrow_column.h"
 
 // 简化的数据结构，用于 LLVM JIT
 typedef struct {
@@ -17,13 +19,12 @@ typedef struct {
   int32_t capacity; // 容量
 } SimpleSelVec;
 
+#define MAX_COLUMNS 16
+
 typedef struct {
-  SimpleColumnView *columns; // 列数组
+  SimpleColumnView columns[MAX_COLUMNS]; // 固定大小的列数组
   int32_t num_cols;          // 列数
   int64_t num_rows;          // 行数
 } SimpleBatch;
 
-// Arrow 类型常量
-#define ARROW_TYPE_DATE32 7
-#define ARROW_TYPE_INT64 3
-#define ARROW_TYPE_DECIMAL128 9
+// Arrow 类型常量已在 ndb_arrow_column.h 中定义为 enum ArrowTypeId

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <arrow/c/abi.h>
+#include "../arrow-c/abi.h"
 #include <stdint.h>
 
 // 统一错误码定义
