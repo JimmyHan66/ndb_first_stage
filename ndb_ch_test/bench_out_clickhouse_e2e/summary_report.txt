@@ -1,0 +1,26 @@
+ClickHouse e2e（端到端墙钟；不预热）
+每轮：新进程→DROP/CREATE→INSERT Parquet(7列)→执行1次；重复 N 轮
+
+max_memory_usage ≈ 85899345920 bytes (~80GB)
+
+平均时间（ms）：
+system     scale  case                    mode        avg_ms   valid
+--------------------------------------------------------------------
+clickhouse     1  agg_only_q1             e2e        909.460       2
+clickhouse     1  q1_full                 e2e        988.997       2
+clickhouse     1  q6_full                 e2e        615.845       2
+clickhouse     1  scan_filter_q1          e2e        559.978       2
+clickhouse     1  scan_filter_q6          e2e        599.505       2
+clickhouse     1  sort_only_shipdate      e2e        741.175       2
+clickhouse     3  agg_only_q1             e2e       1900.986       2
+clickhouse     3  q1_full                 e2e       1895.762       2
+clickhouse     3  q6_full                 e2e        887.596       2
+clickhouse     3  scan_filter_q1          e2e        752.759       2
+clickhouse     3  scan_filter_q6          e2e        942.974       2
+clickhouse     3  sort_only_shipdate      e2e       1307.150       2
+clickhouse     5  agg_only_q1             e2e       3613.098       2
+clickhouse     5  q1_full                 e2e       3660.541       2
+clickhouse     5  q6_full                 e2e       1422.601       2
+clickhouse     5  scan_filter_q1          e2e       1177.635       2
+clickhouse     5  scan_filter_q6          e2e       1241.170       2
+clickhouse     5  sort_only_shipdate      e2e       2202.839       2
